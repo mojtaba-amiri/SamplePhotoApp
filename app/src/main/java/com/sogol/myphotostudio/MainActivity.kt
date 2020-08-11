@@ -3,12 +3,16 @@ package com.sogol.myphotostudio
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.sogol.myphotostudio.databinding.ItemStudioBinding
 import com.sogol.myphotostudio.model.ItemStudio
 import kotlinx.android.synthetic.main.activity_main.*
 
-private lateinit var adapter: RecyclerAdapter
 
 class MainActivity : AppCompatActivity() {
+    private lateinit var adapter: RecyclerAdapter
+    private lateinit var binding: ItemStudioBinding
+    private lateinit var layout: MainAc
+
     val itemList = ArrayList<ItemStudio>()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -26,7 +30,7 @@ class MainActivity : AppCompatActivity() {
         //Reload Data
         // To Register broadcast Resever
         super.onResume()
-        itemList.add(ItemStudio(type="test"))
+        itemList.add(ItemStudio(type="test", phone = "514-213-2345"))
         rvItems.adapter?.notifyItemChanged(1)
     }
 
